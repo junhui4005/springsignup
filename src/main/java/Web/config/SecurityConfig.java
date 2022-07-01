@@ -34,7 +34,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf() // csrf : 사이트 간 요청 위조 = 서버에게 요청할수 있는 페이지 제한
                 .ignoringAntMatchers("/member/logincontroller")//csrf예외처리
-                .ignoringAntMatchers("/member/signupcontoller");//csrf예외처리
+                .ignoringAntMatchers("/member/signupcontoller")//csrf예외처리
+                .and()
+                .oauth2Login()                       //로그인 기능에 대한 여러 설정의 진입점
+                .userInfoEndpoint()//로그인 성공 이후 사용자 정보를 가져올 때 설정
+                .userService(indexService);//소셜로그인 성공시 후속 조치할 userservice 인터페이스의 구현체를 등록
 //        super.configure(http);
     }
 

@@ -13,6 +13,7 @@ public class MemberEntity {
     private int mno;
     private String mid;
     private String mpassword;
+    @Enumerated( EnumType.STRING )
     private Role role;//권한
 
 }
